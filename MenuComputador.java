@@ -1,50 +1,51 @@
-
+import java.util.LinkedList;
 import java.util.Scanner;
-import java.util.Stack;
 
 public class MenuComputador {
-
-    public Stack<ObjComputador> Computador(Scanner sc) {
-        Stack<ObjComputador> c = new Stack<>();
+    public LinkedList<ObjComputador> Computador(LinkedList<ObjComputador> p, Scanner sc) {
         boolean bandera = true;
+        MetodosGenerales m = new MetodosGenerales();
         int opt = 0;
         while (bandera) {
-            System.out.println("\nMenú de opciones:");
-            System.out.println("1. ingresar un computador");
-            System.out.println("2. prestar un computador");
-            System.out.println("3. devolver computador");
-            System.out.println("4 volver al menú Principal");
-            if (!sc.hasNextInt()) {
-                System.out.println("Opcion no valida ");
+            System.out.println("1: Ingresar Computador");
+            System.out.println("2: Prestar Computador");
+            System.out.println("3: Modificar Computador");
+            System.out.println("4: Devolver Computador");
+            System.out.println("5: Volver al menú Principal");
+            while (!sc.hasNextInt()) {
+                System.out.println("Por favor ingrese un dato numerico");
                 sc.next();
-                continue;
+
             }
             opt = sc.nextInt();
             sc.nextLine();
-            if (opt < 1 || opt > 4) {
-                System.out.println("Ingrese una opcion de 1 a 4 por favor ");
-                sc.next();
+            if (opt < 1 || opt > 5) {
+                System.out.println("Por favor Ingrese un valor de 1 a 5 muchas Gracias");
                 continue;
-
             }
-
             switch (opt) {
                 case 1:
-                    System.out.println("pagina en mantenimiento");
+                    p = m.IngresarComputador(p);
+                    System.out.println("registro con exito");
                     break;
                 case 2:
-                    System.out.println("Pagina 2 en mantenimiento");
+                    p = m.PrestarComputador(p);
                     break;
                 case 3:
+                    p = m.ModificarComputador(p);
                     break;
                 case 4:
+                    p = m.DevolverComputador(p);
+                    break;
+                case 5:
+                    System.out.println("chao");
                     bandera = false;
                     break;
+
                 default:
-                    throw new AssertionError();
+                    break;
             }
         }
-        return c;
+        return p;
     }
-
 }

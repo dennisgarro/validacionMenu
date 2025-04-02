@@ -1,6 +1,4 @@
-
 public class ObjComputador {
-
     private String serial;
     private String marca;
     private int memoriaRAM;
@@ -10,20 +8,19 @@ public class ObjComputador {
     private boolean disponible;
     private int Cantidad;
 
-    public ObjComputador(String serial, String marca, int memoriaRAM, int Discoduro, double precio, String Nombreusuario, boolean disponible, int Cantidad) {
+    public ObjComputador(String serial, String marca, int memoriaRAM, int discoduro, double precio,
+            String nombreusuario, boolean disponible, int cantidad) {
         this.serial = serial;
         this.marca = marca;
         this.memoriaRAM = memoriaRAM;
-        this.Discoduro = Discoduro;
+        Discoduro = discoduro;
         this.precio = precio;
-        this.Nombreusuario = " ";
-        this.disponible = true;
-        this.Cantidad = Cantidad;
-
+        Nombreusuario = nombreusuario;
+        this.disponible = disponible;
+        Cantidad = cantidad;
     }
 
     public ObjComputador() {
-
     }
 
     public String getSerial() {
@@ -82,10 +79,6 @@ public class ObjComputador {
         this.disponible = disponible;
     }
 
-    public void mostrarInfo() {
-        System.out.println("PC-serial: " + serial + " marca: " + marca + " memoria ram : " + memoriaRAM + "disco duro: " + Discoduro + "precio: " + precio + "nombre del usuario:  " + Nombreusuario + " y su estado es :" + disponible);
-    }
-
     public int getCantidad() {
         return Cantidad;
     }
@@ -93,4 +86,5 @@ public class ObjComputador {
     public void setCantidad(int cantidad) {
         Cantidad = cantidad;
     }
+
 }
